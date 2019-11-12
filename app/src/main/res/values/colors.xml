@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0055AA</color>
+    <color name="colorPrimaryDark">#004486</color>
+    <color name="colorAccent">#0073FF</color>
+
+    <color name="border_mask">#7e000000</color>
+    <color name="frame_corner">#e8e8e8</color>
+    <color name="button_holder_background">#212540</color>
+
+    <color name="button_gradient_start">#009fe7</color>
+    <color name="button_gradient_end">#0066cb</color>
+</resources>

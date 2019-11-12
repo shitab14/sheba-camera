@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">sheba-camera</string>
+    <string name="title_actionbar_nid">NID এর পিছনের দিকের ছবি </string>
+    <string name="instruction_prompt_nid">আপনার NID ফ্রেমের ভেতরে রেখে স্পষ্ট ছবি তুলুন </string>
+
+    <string name="confirm_image_prompt">ছবিটি স্পষ্ট উঠেছে কিনা নিশ্চিত করুন </string>
+</resources>
