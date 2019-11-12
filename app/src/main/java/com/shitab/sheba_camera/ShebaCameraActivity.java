@@ -49,6 +49,8 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
     RelativeLayout rlButtonHolder;
     Button btnCapture;
 
+    boolean cameraReleasedFlag;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +79,9 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
 
 
     private void initView() {
+
+        //VAR
+        cameraReleasedFlag=false;
 
         //LAYOUT
         rlButtonHolder=findViewById(R.id.rlButtonHolder);
@@ -120,7 +125,10 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
 
         synchronized (holder)
         {draw();}   //call a draw method
+
         camera.cancelAutoFocus();
+
+
         //CAMERA PARAMS
         Camera.Parameters param;
         param = camera.getParameters();
@@ -184,6 +192,7 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
         //camera.stopPreview();
+        cameraReleasedFlag=true;
         camera.release();
     }
 
