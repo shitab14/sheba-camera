@@ -42,10 +42,10 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
     private Camera.PictureCallback pictureCallback;
     public static Bitmap bitmap;
     Canvas canvas;
-    private float RectLeft, RectTop,RectRight,RectBottom ;
+    public float RectLeft, RectTop,RectRight,RectBottom ;
     public Rect photoRect;
 
-    int  deviceHeight,deviceWidth;
+    int  deviceHeight, deviceWidth;
 
     RelativeLayout rlButtonHolder;
     Button btnCapture;
@@ -287,6 +287,10 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
             public void onPictureTaken(byte[] data, Camera camera) {
                 bitmap = BitmapFactory.decodeByteArray(data, 0, data.length);
                 Intent intent = new Intent(ShebaCameraActivity.this, TakenPictureActivity.class);
+                intent.putExtra("cropStartX", RectLeft);
+                intent.putExtra("cropStartY", RectTop);
+                intent.putExtra("cropEndX", RectRight);
+                intent.putExtra("cropEndY", RectBottom);
                 startActivity(intent);
             }
         };

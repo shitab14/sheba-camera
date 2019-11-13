@@ -14,7 +14,7 @@
         <ImageView
             android:id="@+id/ivPreview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:scaleType="fitCenter"
             android:background="@android:color/background_dark"
@@ -29,6 +29,7 @@
             android:paddingLeft="30dp"
             android:paddingBottom="46dp"
             android:layout_alignParentBottom="true"
+            android:layout_above="@id/ivPreview"
             android:background="@color/button_holder_background">
 
             <LinearLayout
