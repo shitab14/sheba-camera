@@ -43,6 +43,7 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
     public static Bitmap bitmap;
     Canvas canvas;
     private float RectLeft, RectTop,RectRight,RectBottom ;
+    public Rect photoRect;
 
     int  deviceHeight,deviceWidth;
 
@@ -80,6 +81,8 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
 
     private void initView() {
 
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON); //KEEPS SCREEN ON
+
         //VAR
         cameraReleasedFlag=false;
 
@@ -107,7 +110,7 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
 
         holderTransparent.addCallback((SurfaceHolder.Callback) this);
 
-        holderTransparent.setFormat(PixelFormat.TRANSLUCENT);
+        holderTransparent.setFormat(PixelFormat.TRANSPARENT);
 
         svTransparentView.setZOrderMediaOverlay(true);
 
@@ -222,13 +225,9 @@ public class ShebaCameraActivity extends AppCompatActivity implements SurfaceHol
         RectLeft = (deviceWidth-640)/2;
         RectTop = deviceHeight-(400+250+rlButtonHolder.getHeight());
         RectRight = deviceWidth-((deviceWidth-640)/2) ;
-        //RectRight = RectLeft+ deviceWidth-100;
-
         RectBottom = deviceHeight-(250+rlButtonHolder.getHeight());
-                //250+400;
-    //deviceHeight-(rlButtonHolder.getHeight()+380);
 
-        //Rect rec=new Rect((int) RectLeft,(int)RectTop,(int)RectRight,(int)RectBottom);
+        photoRect = new Rect((int) RectLeft,(int)RectTop,(int)RectRight,(int)RectBottom);
 
         if(canvas==null){
             Log.e("SHITAB","CANVAS nai!!!");
